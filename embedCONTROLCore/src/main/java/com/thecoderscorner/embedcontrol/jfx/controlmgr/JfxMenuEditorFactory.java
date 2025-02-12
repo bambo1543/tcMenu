@@ -98,11 +98,13 @@ public class JfxMenuEditorFactory implements MenuEditorFactory<Node> {
 
     @Override
     public EditorComponent<Node> createHorizontalSlider(MenuItem item, ComponentSettings settings, double presentableWidth) {
-        if(item instanceof FloatMenuItem) {
-            return new FloatHorizontalSliderComponent(controller, settings, item, controller.getMenuTree(), threadMarshaller);
-        } else if(item instanceof AnalogMenuItem) {
-            return new IntHorizontalSliderComponent(controller, settings, item, controller.getMenuTree(), threadMarshaller);
-        } else throw new UnsupportedOperationException();
+        return new TextFieldEditorComponent<Integer>(controller, settings, item, dlgMgr, threadMarshaller);
+
+        //        if(item instanceof FloatMenuItem) {
+//            return new FloatHorizontalSliderComponent(controller, settings, item, controller.getMenuTree(), threadMarshaller);
+//        } else if(item instanceof AnalogMenuItem) {
+//            return new IntHorizontalSliderComponent(controller, settings, item, controller.getMenuTree(), threadMarshaller);
+//        } else throw new UnsupportedOperationException();
     }
 
     public EditorComponent<Node> createAnalogMeter(MenuItem item, ComponentSettings settings, double presentableWidth) {
